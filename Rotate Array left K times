@@ -1,0 +1,21 @@
+
+#include<vector>
+#include<algorithm>
+void reverse(vector<int>&arr,int low,int high)
+{
+  while(low<high)
+  {
+    swap(arr[low],arr[high]);
+    low++;
+    high--;
+  }
+}
+
+vector<int> rotateArray(vector<int>arr, int k) {
+    // Write your code here.
+    int n=arr.size();
+    reverse(arr,0,n-1);
+    reverse(arr,0,n-k-1);
+    reverse(arr,n-k,n-1);
+    return arr;
+}
