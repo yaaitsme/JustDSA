@@ -1,0 +1,30 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+
+	public static int arrayEquilibriumIndex(int[] arr){  
+		//Your code goes her
+		int n=arr.length;
+    int leftsum[]=new int[n];
+    int rightsum[]=new int[n];
+
+    leftsum[0]=0;
+    rightsum[n-1]=0;
+
+    for(int i=1;i<n;i++)
+    {
+        leftsum[i]=leftsum[i-1]+arr[i-1];
+    }
+    for(int j=n-2;j>=0;j--)
+    {
+        rightsum[j]=rightsum[j+1]+arr[j+1];
+
+    }
+ for(int i=0;i<n;i++)
+ {
+     if(leftsum[i]==rightsum[i])
+     return i;
+ }
+ return -1;
+	}
+}
